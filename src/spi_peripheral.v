@@ -3,5 +3,5 @@
 module spi_peripheral(
     input wire epic
 );
-assign unused = epic;
+wire unused = epic;
 endmodule
