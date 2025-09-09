@@ -8,6 +8,9 @@ project:
     - spi_peripheral.v
     - pwm_peripheral.v  
     - project.v
+  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  tiles: "10x10" # I'm very greedy  
 
 # NOT REQUIRED
 pinout:
