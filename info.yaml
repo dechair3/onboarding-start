@@ -1,12 +1,13 @@
-# info.yaml  
-title: "ASIC Onboarding Project - Charan Tadepalli"  
-author: "Charan Tadepalli"  
-description: "SPI-controlled PWM peripheral for Tiny Tapeout."  
-top_module: "tt_um_uwasic_onboarding_charan_tadepalli"  # Match your top module name  
-source_files:  
-  - spi_peripheral.v
-  - pwm_peripheral.v  
-  - project.v
+# info.yaml
+project:  
+  title: "ASIC Onboarding Project - Charan Tadepalli"  
+  author: "Charan Tadepalli"  
+  description: "SPI-controlled PWM peripheral for Tiny Tapeout."  
+  top_module: "tt_um_uwasic_onboarding_charan_tadepalli"  # Match your top module name  
+  source_files:  
+    - spi_peripheral.v
+    - pwm_peripheral.v  
+    - project.v
 
 # NOT REQUIRED
 pinout:
