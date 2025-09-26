@@ -26,9 +26,11 @@ module tt_um_uwasic_onboarding_charan_tadepalli (
 
 
   spi_peripheral spi_peripheral_inst(
+    .clk(clk),
     .sCLK(ui_in[0]),
     .COPI(ui_in[1]),
     .nCS(ui_in[2]),
+    .rst_n(rst_n),
     .en_reg_out_7_0(en_reg_out_7_0),
     .en_reg_out_15_8(en_reg_out_15_8),
     .en_reg_pwm_7_0(en_reg_pwm_7_0),

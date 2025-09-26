@@ -1,9 +1,11 @@
 `default_nettype none
 
 module spi_peripheral(
+    input wire      clk,
     input wire      sCLK,
     input wire      COPI,
     input wire      nCS,
+    input wire      rst_n,
 
     output reg [7:0] en_reg_out_7_0,
     output reg [7:0] en_reg_out_15_8,
@@ -23,8 +25,15 @@ reg [3:0] cycle_counter  = 4'h0;
 reg [7:0] addr           = 8'h00;
 reg [6:0] data           = 8'h00;
 reg       op_valid       = 1'b0;
-always @(posedge sCLK ) begin
-    if(!nCS) begin
+
+always @(posedge clk or negedge rst_n) begin
+    if(!rst_n) begin
+        cycle_counter   <= 4'h0;
+        addr            <= 8'h00;
+        data            <= 7'h00;
+        op_valid        <= 1'b0;
+    end
+    else if(!nCS) begin
         if(cycle_counter == 4'h0) begin
             op_valid <= COPI;
         end
@@ -55,11 +64,6 @@ always @(posedge sCLK ) begin
         end
         cycle_counter <= cycle_counter + 1;
     end
-    else begin
-        cycle_counter   <= 4'h0;
-        addr            <= 8'h00;
-        data            <= 7'h00;
-        op_valid        <= 1'b0;
-    end
+
 end
 endmodule
